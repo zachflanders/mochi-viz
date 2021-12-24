@@ -1,0 +1,123 @@
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+.nodes circle {
+  stroke: #2f2f2f;
+  stroke-width: 0px;
+    cursor: pointer;
+}
+
+pre {
+    background: #2f2f2f;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+code {
+    background: #2f2f2f;
+    border-radius: 4px;
+}
+table {
+        border-collapse: collapse;
+
+}
+
+td, th{
+    border: 1px solid #222222 !important;
+    padding: 5px;
+}
+
+h1, h2, h3 {
+    color: #e5e5e5;
+}
+
+body {
+    background: #2f2f2f;
+    color:  #ccc;
+    font-family: 'Roboto', sans-serif;
+    overflow-y: hidden;
+    line-height: 1.25;
+    font-weight: 400;
+}
+
+#note {
+    display: none;
+    position: absolute;
+    width: 600px;
+    top: 25px;
+    left: 25px;
+    padding: 20px;
+    background: #444444;
+    max-height: calc(100% - 100px);
+    z-index: 100;
+    box-shadow: #222222 0px 0px 15px;
+    overflow-y: auto;
+    border-radius: 10px;
+
+}
+#note::-webkit-scrollbar {
+    background: none !important;
+    border-radius: 10px;
+}
+#note::-webkit-scrollbar-thumb {
+    background: #333333 !important;
+    border-radius: 10px;
+}
+
+#item {
+    width: 100%;
+    overflow-y: hidden;
+}
+
+#close {
+    text-decoration: none;
+    color: #222222;
+    display: block;
+    width: 100%;
+    text-align: right;
+
+}
+
+#close:after{
+  display: inline-block;
+  content: "\00d7"; /* This will render the 'X' */
+    font-size: 24px;
+    cursor: pointer;
+}

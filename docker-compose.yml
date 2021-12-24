@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  frontend:
+    build: ./frontend/
+    volumes: 
+      - ./frontend/:/usr/src/app/
+    environment:
+      PORT: 3000
+    ports:
+      - 3000:3000
+    command: ["npm", "start"]
+  flask:
+    build: ./server/
+    volumes: 
+      - ./server/:/usr/src/app/
+    ports:
+      - "5000:5000"
+    command: ["python", "app.py"]
