@@ -29,11 +29,12 @@ class Graph extends React.Component {
     }
 
     componentDidUpdate() {
-        console.log(window.MathJax);
         let width = window.screen.width;
         let height = window.screen.height;
-        const svg = d3.select("#graph")
+        d3.select("#graph-view").remove()
+        const svg = d3.select("#graph") 
             .append("svg")
+            .attr("id", "graph-view")
             .attr("width", width)
             .attr("height", height)
             .attr("viewBox", [-width / 2, -height / 2, width, height])
@@ -131,11 +132,9 @@ class Graph extends React.Component {
                 .attr("y", function (d) {return d.y - 10; });
             }
         node.on('click', (d)=>{
-            console.log(d)
             let note = document.getElementById("note");
             note.innerHTML = '<a id="close"></a>' + md.render(d.target.__data__['content']).replace(/\|.*\]\]/g, '').replace(/\[\[/g, '');
                 document.getElementById('close').onclick = function(){
-                console.log('click')
                 document.getElementById('note').style.display = 'none';
             }
             window.MathJax.typeset()
