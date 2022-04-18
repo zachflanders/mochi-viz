@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Form from './Form';
 import Graph from './Graph';
+import Charts from './Charts';
+
 
 
 class App extends React.Component {
@@ -13,6 +15,7 @@ class App extends React.Component {
       links: [],
       loading: false,
       error: false,
+      view: 'graph',
     }    
   }
 
@@ -33,11 +36,16 @@ class App extends React.Component {
     )
   }
 
+  setView = (view) => {
+    this.setState({view: view})
+  }
+
   render() {
     return (
       <div className="App">
-        <Form getCards={this.getCards} cards={this.state.cards} loading={this.state.loading} error={this.state.error} />
-        <Graph cards={this.state.cards} links={this.state.links} loading={this.state.loading} />
+        <Form getCards={this.getCards} setView={this.setView} cards={this.state.cards} loading={this.state.loading} error={this.state.error} />
+        <div style={{display: this.state.view === 'graph' ? 'block': 'none'}}><Graph cards={this.state.cards} links={this.state.links} loading={this.state.loading} /></div> 
+        <div style={{display: this.state.view === 'charts' ? 'block': 'none'}}><Charts cards={this.state.cards} /></div>
       </div>
     );
   }

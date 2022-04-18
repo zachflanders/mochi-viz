@@ -23,11 +23,7 @@ const md = new Remarkable({
 
 
 class Graph extends React.Component {
-
-    constructor(props) {
-        super(props)
-    }
-
+    
     componentDidUpdate() {
         let width = window.screen.width;
         let height = window.screen.height;
