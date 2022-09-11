@@ -14,7 +14,7 @@ def make_links(cards):
     return [
         {'source': card['id'], 'target': reference}
         for card in cards
-        for reference in card['references']
+        for reference in card.get('references', [])
         if reference in [card['id'] for card in cards]
     ]
 
